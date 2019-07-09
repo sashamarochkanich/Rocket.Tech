@@ -34,7 +34,7 @@ public class DistinctWords {
             try{
                 if(br != null) br.close();
             } catch(Exception ex){
-//                ex.printStackTrace();
+                ex.printStackTrace();
             }
         }
         return wordList;
