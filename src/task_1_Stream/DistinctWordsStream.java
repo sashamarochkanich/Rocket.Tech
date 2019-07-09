@@ -8,8 +8,8 @@ import java.util.stream.Stream;
 
 public class DistinctWordsStream {
 
-    public static void main(String[] args){
-        try (Stream<String> stream = Files.lines(Paths.get("Lorem Ipsum.txt"))) {
+    public void getDistinctWordStreamList(String fileName){
+        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.flatMap(Pattern.compile("[ ;.,:\\-]")::splitAsStream)
                     .map(String::toLowerCase)
                     .distinct()
@@ -19,6 +19,11 @@ public class DistinctWordsStream {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args){
+        DistinctWordsStream distinctWordsStream = new DistinctWordsStream();
+        distinctWordsStream.getDistinctWordStreamList("Lorem Ipsum.txt");
     }
 }
 
